@@ -1,0 +1,5 @@
+_ at start of methods is done, so that the methods are not public
+So it is not callable
+
+- enumerate to find the total number of elements in array/list/any sequence
+
