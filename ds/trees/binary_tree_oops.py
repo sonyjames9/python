@@ -1,4 +1,5 @@
 import math
+from collections import deque
 
 
 class BinaryTree():
@@ -48,6 +49,40 @@ class BinaryTree():
       return True
     else:
       return (root.val > min_val and root.val < max_val and self.is_valid(root.left_child, min_val, root.val) and self.is_valid(root.right_child, root.val, max_val))
+
+  def level_order_print(self,tree):
+    if tree is None:
+      return
+  
+    queue = deque()
+    queue.append(tree)
+    while len(queue) != 0:
+      temp = deque()
+      while len(queue) != 0:
+        node = queue.pop()
+        print(str(node.val) + ' ')
+        if node.left is not None:
+          temp.append(tree.left)
+        if node.right is not None:
+          temp.append(tree.right)
+        queue = temp
+
+  def trim_bst(self, root, min_val, max_val):
+    """
+    :type root: TreeNode
+    :type min_val: int
+    :type max_val: int
+    :rtype: TreeNode
+    """
+    if not root:
+      return None
+    if root.val < min_val:
+      return self.trim_bst(root.right_child, min_val, max_val)
+    if root.val > max_val:
+      return self.trim_bst(root.left_child, min_val, max_val)
+    root.left_child = self.trim_bst(root.left_child, min_val, max_val)
+    root.right_child = self.trim_bst(root.right_child, min_val, max_val)
+    return root
 
 
 r = BinaryTree('a')
