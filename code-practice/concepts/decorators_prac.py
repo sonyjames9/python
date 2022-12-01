@@ -10,14 +10,14 @@ import sys
 import time
 
 
-def hello():
+def hello():  # type: ignore
   print("Hello")
 
 
 message = hello
 
 # Uncomment to check below decorator function
-# message()
+message()
 
 
 def hello(func):
@@ -74,7 +74,7 @@ def measure_time(func):
 
 
 @measure_time
-def my_func(n):
+def my_func(n):  # type: ignore
   time.sleep(n)
 
 # my_func(2)
@@ -232,7 +232,7 @@ class Example(object):
 # Decorators allow you to inject or modify code in functions or classes. Sounds a bit like Aspect-Oriented Programming(AOP) in Java, doesn’t it? Except that it’s both much simpler and (as a result) much more powerful. For example, suppose you’d like to do something at the entry and exit points of a function(such as perform some kind of security, tracing, locking, etc. – all the standard arguments for AOP). With decorators, it looks like this:
 
 # Class as decorators
-class entry_exit(object):
+class entry_exit(object):  # type: ignore
 
     def __init__(self, f):
         self.f = f
@@ -244,12 +244,12 @@ class entry_exit(object):
 
 
 @entry_exit
-def func1():
+def func1():  # type: ignore
     print("inside func1()")
 
 
 @entry_exit
-def func2():
+def func2():  # type: ignore
     print("inside func2()")
 
 
