@@ -1,5 +1,5 @@
 from platform import node
-
+from code_practice import arrays
 
 class Node:
 

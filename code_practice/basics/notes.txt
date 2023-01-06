@@ -1,0 +1,425 @@
+_ at start of methods is done, so that the methods are not public
+So it is not callable
+
+- enumerate to find the total number of elements in array/list/any sequence
+
+LinkedList
+- Cyclic
+- Reversal
+- Nth to last node
+
+
+
+http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html
+
+# Hash tables is a collection of items which are stored in such a way as to make it easy to find them later.
+- Each position of the hash table, slots can hold an item and is named by an integer value starting at 0
+- slot 0, 1,2,3...
+- initially the hash table is empty, contains no items in slots
+
+- Use hash table to map items to slots
+
+- remainder methods
+h(item) = item % 11
+
+54 % 11 = 10
+26 % 11 = 4
+93 % 11 = 5
+17 % 11 = 6
+77 % 11 = 0
+31 % 11 = 9 
+
+load factor() = num of items/tablesize
+
+Collision -
+But there would be other nums with same remainder and would update the existing nos at the hash location remainder.
+
+Perfect hash function - minimize the collision and maps each item into unique slots
+
+Hash Functions 
+Folding method - Dividing the item into equal size pieces - last piece may not be of equal size
+
+- These pieces are then added together to give resulting hash value
+
+Hash Functions 
+Mid Square method - Square the item and then extract some portion of the resulting digits
+- 44^2= 1936
+- Ex 93 % 11 = 5
+
+Item  Remainder   Mid-Square
+54    10          3
+26    4           7
+93    5           9
+17    6           8
+77    0           4
+31    9           6
+
+Reduce collision
+- Go to another open slot to hold the item that caused the collision
+- Start at original hash value position and move in a sequential manner through the slots until we encounter the first slot thats empty
+- Collission resolution process is referred 
+as Open addressing
+
+Linear probing - Visiting each slot to find the empty slot
+Rehashing - Looking for another slot after a collision
+Quadratic Probing - A variation of the linear probing
+
+Chaining - Items coexist on same slot
+ 
+0 -> 77 -> 44
+1 -> None
+3 ..
+4 -> 26
+..
+9 -> 31 -> 20
+
+- Mid nos
+- Square nos
+- Ordinal nos
+
+
+#Sorting
+
+https://www.toptal.com/developers/sorting-algorithms Sorting visualization
+Insertion	
+Selection	
+Bubble	
+Shell	
+Merge	
+Heap	
+Quick	
+Quick3
+
+https://visualgo.net/en All algorithms, search, sort
+
+
+## Sorting
+# Bubble - Bubble largest item to end of the array, keep on bubbling n-1 positions until the first 2 positions which should sort the entire array
+
+
+
+# Selection - The largest item is selected and moved to the n location. Second largest item is selected and moved to n-1 and so on n-2, n-3..n
+
+
+#Insertion - maintians a sorted sublist in the lower positons of the list
+- We begin assuming that a list with one item(position 0) is already sorted
+- On each pass, one for each item 1 thru n-1, the current item is checked against those already in sorted sublist
+- As we look back into the already sorted sublist, we shift those items that are greater to the right
+- When we reach a smaller item or the end of the sublist, the current item can be inserted
+
+
+#Shell - improves on the insertion sort by breaking the original list into smaller sublists
+- Unique way these sublists are chose is ket to the shell sort
+- Users an increment i to create a sublist by choosing all items that are "i" items apart
+
+eg: 3/4 sublists
+
+
+#Merge - recursive algorithm that continually splits a list in half
+- If list is empty or has one item, its sorted by definition (the base case)
+- If the list has more than one item, we split the list and recursively invoke a merge sort on both halves.
+- Once the splits are sorted, the merge operation is performed
+- Its a process of taking 2 smaller sorted lists and combining them together into a single, sorted, new list
+
+
+#Quick - uses divide and conquer to gain some advantage as the merge sort, while not using additional storage
+- The list may not be divided in half
+- A value is selected called pivot value
+- The role of pivot is to assist with splitting the list
+- The actual value position where the pivot value belongs in the final sorted list, commonly called the split point, will be used to divide the list for subsequent calls to the quick sort
+
+- first element may be the pivot value
+- So items are shifted to left or right depending on the pivot value
+- if the left is less than pivot value the items lesser than pivot will move to the left
+- if the right is greater than pivot value the items greater than pivot will move to the right
+- ROLE OF PIVOT VALUE IS TO ASSIST IN SPLITING OF LIST
+
+
+#  https://github.com/jmportilla/Python-for-Algorithms--Data-Structures--and-Interviews.git
+
+
+#Trees - ADT
+root, branches and leaves
+- All children of one node are independent of the children of another node
+- Each leaf node is unique
+- File system is an example of trees - directories/folders are structured as trees
+- HTML is another example
+- Binary tree - If each node in the tree has a maximum of two children, we say the tree is a binary tree
+- A tree is either empty or consists of a root and zero or more subtrees, each of which is also a tree
+- The root of each subtree is connected to the root of the parent tree by an edge
+
+Node - called as key
+- It has additional info called payload
+- Payload info is not central to many tree algoritms, its often critical in apps that make use of trees
+
+Edge - connects two nodes to show that there is a relationship between them
+- Every node (except the root) is connected by exactly one incoming edge from another node
+- Each node has several outgoing edges
+
+Path - an ordered list of nodes that are connected by edges
+
+Leaf node - a node that has no children
+
+Level - level of node n is the number of edges on the path from the root node to n
+
+Height -  Maximum level of any node in the tree
+
+tree = [ 'a', # root
+        ['b', #left subtree
+        ['d',[],[]],
+        ['e',[],[]]
+        ['c', #right subtree
+        ['f',[],[]]],
+        []
+        ]]
+
+#Tree Traversal - The order in which each node is visited
+1. Preorder 
+2. Inorder
+3. Postorder
+
+Preorder - we visit the root node first -> then recursively do  a preorder traversal of the left subtree -> followed by a recursive preorder traversal of the right subtree
+- root -> left subtree -> right subtree
+
+Inorder - we recursively do an inorder traversal on the left subtree -> visit the root node -> and finally do a recursive inorder traversal of the right subtree
+- left subtree -> root -> right subtree
+
+Postorder - we recursively do a postorder traversal of the left subtree -> and the right subtree followed -> by a visit to the root node
+- left subtree -> right subtree -> root 
+
+Assignment:
+Implement Preorder/Inorder/Postorder in trees
+
+#Binary heap
+Priority Queues - Acts like a queue in that you dequeu an item by removing it from the front
+- The logical order of items inside a queue is determined by their priority
+- The highest priority items are at the front of the queue and the lowest priority items are at the back
+- When you enqueue an item on a priority queue, the new item may move all the way to the front
+- Classic way to implement a priority queue is using a DS called binary Heap
+- Binary heap will allow us both enqueue and dequeue items in O(log n)
+
+Min heap - the smallest key is always at the front
+Max heap - the largest key is always at the front
+
+## https://en.wikipedia.org/wiki/Binary_heap
+Min heap
+
+- Binary trees can be used to make heap work efficiently.
+- To guarantee logarithmic performance, the tree should be balanced
+- In balanced binary tree has roughly the same number of nodes in the left and right subtrees of the root
+- Use complete binary tree to keep balanced tree
+- A complete balanced tree is a tree which each level has all of its nodes
+
+Find the child of the tree using below formula: 
+- 2p and 2p + 1
+
+
+Binary Search Tree-
+- Root has mid value
+- Node values less than root is on left of the tree
+- Node values more than root is on right of the tree
+
+yield - generator
+
+Implement  ----
+- Binary Search Tree Check - Find if the tree is binary search tree
+- Tree level order - print binary tree of integers, print it in level order
+- Trim a Binary Search Tree - Trim the tree such that all nos in new tree are between min and max values. The resulting tree should still be a valid BST.
+
+Threading -- 
+
+4 cores/2.6 ghz CPU
+4 cores - 4 operations at the same time - parallelism
+2.6 ghz - Each core can perform 2.6 ghz - million operations per Second
+2.6 * 4 operations/sec
+clock speed -
+
+Threads and Multiprocessing
+Threads - One program set of operations/functions that needs to happen. Threading does not involve running on multiple cores. 4 cores will have its own threads.
+- One thread may be waiting for an event for user input, so other threads can perform different operations at the same time.
+Concurrent Programming - Multiple threads running at same time, CPU core switching between threads to perform the execution.
+
+- Threading does not involve on running on multiple cores.
+
+
+In Py2, threading was declared with import
+import thread
+
+Py3
+import threading
+
+import _thread # thread module is deprecated. We can use python 2 thread implementation in python 3
+
+x = threading.Thread(target=thread_fn, args=(4,))
+
+# Its important how the args is declared as, here its a tuple
+# args=(4,) - Even if there is no value after "4", you add a comma after the declaration to have None as second value.
+# args=(4,None) - This is how it will be if you add only comma after the args.
+
+SynchronizeThreads - Run threads in order 
+
+y = threading.Thread(target=count2, args=(10,))
+print(f"Thread Active count 2 : {threading.activeCount()}")
+y.start()
+y.join()
+
+z = threading.Thread(target=count3, args=(10,))
+print(f"Thread Active count 3 : {threading.activeCount()}")
+z.start()
+z.join()
+
+As soon as you use join, the threads will synchronize as per implementation
+
+
+OOPS ------------
+
+hasattr(object,"name")
+
+# self keyword
+self is instance attribute, the 
+class_name.function(object_name)
+
+
+def studentDetails(self): # this is where the object is passed to a function in class using self keyword
+
+self.name = "Sony" # instance attribute
+objectname.attribute
+For instance methods self keyword has to be used
+
+# static methods
+# Static method, self is not required, it dosent depend on instance attribute
+@staticmethod # Using this decorator, instance knows this is class method
+def welcomeToSchool():
+  print("Welcome")
+
+staticmethod is also called as class method
+
+#__init__
+-  def __init__(self) #when an object is instantiated, the object is passed here
+
+object and self has address of object
+
+s1.name = "name123"
+self.name = "name123"
+
+#class methods
+Factory methods - return object of class
+-classmethods are generally returning an object that are factory methods
+
+-staticmethods are generally utility function returning used to check something on the class
+
+
+# Access Modifiers
+- Private variables are accessible only in class and initialized using  __
+__name # private variable 
+def __isPassed(self): # private functions
+
+Name Mangling --- 
+We can use private vars, but its not recommended to use it
+- object.classname__variable
+eg: s1._Student__name #var can be accessed this way
+s1._Student__passing_percentage
+
+This particular way of using your private vars is not recommended.
+
+- Protected --- 
+- Do not try to change the protected variable as far as possible
+- Do not modify it
+- Access it as minimum as possible
+- Python thinks programmers are sensible
+- using _ shows that var is protected/private
+
+
+# Inheritance
+class Car(Vehicle):
+  def __init__(self, color, maxSpeed, gears, isConvertible):
+      super().__init__(color, maxSpeed)
+
+  def printCar(self):
+  # super().print()
+    self.print()
+    print(f"Total Gears : ", self.gears)
+    print(f"Is Converitble : ", self.isConvertible)
+
+Multiple Inheritance -- 
+- The order of inherited classes makes difference, if same method/vars is used across classes, then the first inherited class method/vars will be initialized
+
+MRO -  Method resolution order
+print(Child.mro())
+[<class '__main__.Child'>, <class '__main__.Father'>, <class '__main__.Mother'>, <class 'object'>]
+
+# Object class
+
+__new__
+__init__
+__str__     - # This is object value which will be returned when object is called/printed
+
+# Abstract Methods
+from abc import ABC,abstractclassmethod
+If you have any abstractmethod decorator to a function in a class, you cannot create object of the class.
+
+---- If init method of child class is not defined/missing, then the object will be initialized at the parent class init method
+
+
+try/except
+- else
+If there are no exceptions then it can go to else loop
+
+1. try      try block
+2. except   catch any exceptions
+3. else     Go to else block if there were no exceptions
+4. finally  Will be executed everytime irrespective of the exception handling
+
+Tuples:
+tuples are immutable and lists are mutable
+tuples entries once added, the entries cannot be updated, added or removed/delete
+The entire tuple can be deleted
+
+#List Comprehension
+
+
+
+
+## Graphs
+- Graphs are more general section than trees, we can think of  a tree as a special kind of graph
+- Graphs represents real world examples like: 
+systems of roads, airline flights from city to city, how internet is connected
+- Once we have good representation of problem, we can use standard graph algorithms to solve
+- Computers can operate well with information presented as a graph
+
+- Vertex also known as key, could have additional information known as payload
+
+- Edge connects two vertices to show the relationship, it may be one-way or two-way.
+- if the edges in graph is one way, its known as directed graph or digraph
+
+- Weight shows the wieghtage to travel from one vertex to another
+eg: In a graph of roads that connect once city to another, the weight on the edge might represent the distance between two cities
+
+- Graph can be represented by G where G = (V,E)
+- Each edge is a tuple(v,w) where w, vEV
+- We can add a third component to the edge tuple to represent a weight
+
+- A cycle in a directed graph is a path that starts and ends at the same vertex
+- A subgraph s is a set of edges e and vertices v
+- A graph with no cycles is called acyclic graph
+- A directed graph with no cycles is called directed acyclic graph or DAG
+
+- How to represent graphs
+Adjacency Matrix
+Adjacency List
+
+- Adjacency Matrix
+One of the easisest ways to implement a graph is a 2D matrix
+Each of the rows and colums represent a vertex in the graph
+The value that is stored in the cell at the intersection of row v and column w indicates if there is an edge from vertex v to vertex w
+When two vertices are connected by an edge, we say that they are adjacent
+
+- Advantage matrix
+The advantage of the adjacency matrix is that its simple, and for smallgraphs its easy to see which nodes are connected to other nodes
+However most of the cells in the matrix is empty
+Since most of the cells are empty we say that the matrix is sparse
+A matrix is not a very efficient way to store sparse data
+The adjacency matrix is good implementation for a graph when the number of edges is large
+Since there is one column and one row for every vertex in graph, the number of edges required to fill the matrix is |V|^2
+A matrix is full when every vertex is connected to every other vertex
+
