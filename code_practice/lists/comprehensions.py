@@ -51,7 +51,7 @@ print(set2)
 
 l1 = [1, 4, 5, 3, 2]
 d1 = {x: x**3 for x in l1}
-d2 = {x: f"ID{x}"for x in range(5)}
+d2 = {x: f"ID {x}"for x in range(5)}
 
 l2 = [101, 103, 102]
 l3 = ["ggg", "prac", "python"]

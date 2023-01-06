@@ -1,8 +1,9 @@
 # Print the smallest number of the value and the number of digits
 # N = 10, d=2, op= 19
 # N = 9,  d=2, op= 18
+# N = 15,  d=2, op= 69
 # N = 20, d=3, op= 299
-# N = 20, d=2, op=
+# N = 20, d=2, op= Not possible
 
 
 num = 9
@@ -56,8 +57,10 @@ def find_smallest_num(num, digits):
 
 
 find_smallest_num(10, 2)
+find_smallest_num(9, 2)
 find_smallest_num(15, 2)
 find_smallest_num(20, 3)
+find_smallest_num(20, 2)
 # find_smallest_num(2, 10)
 # find_smallest_num(2, 10)
 # find_smallest_num(2, 10)

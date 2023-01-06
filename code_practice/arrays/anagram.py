@@ -1,7 +1,3 @@
-from re import S
-from turtle import st
-
-
 def anagram(string1, string2):
   string1 = string1.replace(' ', "").lower()
   string2 = string2.replace(' ', "").lower()

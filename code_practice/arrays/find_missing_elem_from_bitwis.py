@@ -11,7 +11,7 @@ def find_missing_item(array1, array2):
   print(res)
 
 
-find_missing_item([1, 2, 3, 4], [1, 3])
+find_missing_item([1, 2, 3, 4], [1,2, 3])
 find_missing_item([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6])
 
 print("RIGHT : {}".format(20 >> 2))

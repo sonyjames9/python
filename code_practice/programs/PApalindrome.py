@@ -21,6 +21,7 @@ def palindrome_list(arr):
   size_of_array = len(arr)
   list_of_nums = [int(num) for num in arr]
   list_of_nums = sorted(list_of_nums, reverse=True)
+  print(list_of_nums)
   dict_palindrome = {}
   for num in list_of_nums:
     if num not in dict_palindrome:

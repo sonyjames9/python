@@ -59,7 +59,7 @@ def length(head):
   return count
 
 
-def insert_ith_node(head, ith_position, data):
+def insert_iterative(head, ith_position, data):
   if ith_position < 0 or ith_position > length(head):
     return head
 
@@ -76,22 +76,50 @@ def insert_ith_node(head, ith_position, data):
     prev.next = new_node
   else:
     head = new_node
+    head.next = curr
   new_node.next = curr
 
   return head
 
 
+def delete_node(head, position):
+  pass
+
+
+def insert_recursively(head, ith_pos, data):
+  if ith_pos < 0:
+    return head
+  if ith_pos == 0:
+    new_node = Node(data)
+    new_node.next = head
+    return new_node
+
+  if head is None:
+    return None
+
+  initial_head = insert_recursively(head.next, ith_pos-1, data)
+  head.next = initial_head
+  return head
+
+#    else:
+#
+#
+#   pass
+
+
+
 head = take_input()
 
-print_linked_list(head)
+# print_linked_list(head)
 
 # node
-print(f"Value at {print_ith_node(head, 3)}")
-print(f"Value at ith {insert_ith_node(head, 3, 5)}")
+# print(f"Value at {print_ith_node(head, 3)}")
+# print(f"Value at ith {insert_ith_node(head, 3, 5)}")
 print_linked_list(head)
-print(f"Value at ith {insert_ith_node(head, 5, 9)}")
-print_linked_list(head)
-print(f"Value at ith {insert_ith_node(head, 0, 44)}")
+# print(f"Value at ith {insert_ith_node(head, 5, 9)}")
+# print_linked_list(head)
+insert_recursively(head, 1, 44)
+# print(f"Node after insert : {print_linked_list(head)}")
 print_linked_list(head)
 
 #
