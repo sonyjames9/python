@@ -28,7 +28,7 @@ def compare(user_score, computer_score):
     return "Lose, opponent has Blackjack"
   elif user_score == "0":
     return "Win wth a blackjack"
-  elif user_Score > 21:
+  elif user_score > 21:
     return "You went over, You lose"
   elif computer_score > 21:
     return "Opponent went over, You win"
@@ -42,6 +42,8 @@ def play_game():
   user_cards = []
   computer_cards = []
   is_game_over = False
+  user_score = 0
+  computer_score = 0
 
   for _ in range(2):
     user_cards.append(deal_card())
