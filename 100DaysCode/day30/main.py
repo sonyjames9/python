@@ -1,11 +1,3 @@
-# try: 
-# 
-# except:
-# 
-# else:
-# 
-# finally:
-
 try:
   file = open("100DaysCode/day30/a_file.text")
   a_dict = {"key":"value"}

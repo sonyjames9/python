@@ -423,3 +423,6 @@ The adjacency matrix is good implementation for a graph when the number of edges
 Since there is one column and one row for every vertex in graph, the number of edges required to fill the matrix is |V|^2
 A matrix is full when every vertex is connected to every other vertex
 
+
+
+ =GoogleTranslate(A2, "fr", "en")
