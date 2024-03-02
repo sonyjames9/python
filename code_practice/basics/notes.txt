@@ -426,3 +426,9 @@ A matrix is full when every vertex is connected to every other vertex
 
 
  =GoogleTranslate(A2, "fr", "en")
+
+
+ datetime, json, tkinter, pandas, random, pyperclip, re, pyperclip, smtplib, email
+
+
+birthday_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
