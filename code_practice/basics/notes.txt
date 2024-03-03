@@ -432,3 +432,23 @@ A matrix is full when every vertex is connected to every other vertex
 
 
 birthday_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
+
+status code https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+https://www.webfx.com/web-development/glossary/http-status-codes/
+
+1xx: Hold On
+2xx: Here you go
+3xx: Redirect
+4xx: something bad
+5xx: Server may be down
+
+Show geo location based on latitude and longitude https://www.latlong.net/Show-Latitude-Longitude.html
+
+
+small python code deploy: https://www.pythonanywhere.com/user/sonyjames9/tasks_tab/
+
+API coinbase.com: https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs/api-users
+
+domain names: https://yelsh.com/  
+
+kaybe quotes: https://api.kanye.rest/

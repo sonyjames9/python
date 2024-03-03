@@ -3,7 +3,7 @@
 # import smtplib
 # 
 # my_email = "aawrashopping@gmail.com"
-# password = "yraf xnic bhkq rwyt"
+# password = "zqff xnic bhkq swyt"
 # 
 # msg = MIMEMultipart()
 # msg['From'] = my_email
