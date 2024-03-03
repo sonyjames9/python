@@ -451,4 +451,11 @@ API coinbase.com: https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs/api
 
 domain names: https://yelsh.com/  
 
-kaybe quotes: https://api.kanye.rest/
+kayne quotes: https://api.kanye.rest/
+
+owm_api_key = os.environ.get("owm_api_key")
+endpoint = "https://api.openweathermap.org/data/2.5/forecast"
+twilio_account_sid = os.environ.get("twilio_account_sid")
+twilio_auth_token = os.environ.get("twilio_auth_token")
+
+have fun with apis https://apilist.fun/
