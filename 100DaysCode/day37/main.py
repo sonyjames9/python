@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 
 USERNAME="sony-j"
-TOKEN="3c8046ab438c4443955306431c6ee215"
+TOKEN="1c8046ab438c4443955306431c6ee219"
 GRAPH_ID = "graph1"
 
 pixela_endpoint = "https://pixe.la/v1/users"
