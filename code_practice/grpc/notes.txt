@@ -155,5 +155,18 @@ insecure - self signed certificates
 # For testing grpc server
 >  python -m pytest -v
 
-After server is launched
+
+Chap5 -> adv_topics
+https://github.com/LinkedInLearning/grpc-in-python-2472001/tree/main/Ch06/06_05
+Build everything from this git
+
+1. First run the server
+python server.py
+
+2. in adv_topics > 5 gateway folder run
+This will run the rest api sever on port 8080
+> go run .
+
+3. After server is launched
 > curl -d@request.json http://localhost:8080/start
+
