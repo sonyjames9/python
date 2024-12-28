@@ -165,6 +165,8 @@ python server.py
 
 2. in adv_topics > 5 gateway folder run
 This will run the rest api sever on port 8080
+https://github.com/LinkedInLearning/grpc-in-python-2472001/blob/main/Ch06/06_05/gateway/main.go
+the 8080 port will be found in this file
 > go run .
 
 3. After server is launched
