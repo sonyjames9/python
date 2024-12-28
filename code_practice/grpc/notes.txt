@@ -88,7 +88,7 @@ https://httpbin.org/
 
 https://kennethreitz.org/
 
-
+https://github.com/grpc-ecosystem/grpc-gateway
 
 *******
 
@@ -117,6 +117,9 @@ Sharing .proto definitions ------
 2. Gitsubmodules
 3. Python/Language packages/jars
 
+Last chapter needs to be build from
+https://github.com/grpc-ecosystem/grpc-gateway
+https://github.com/googleapis/googleapis
 
 
 Commands----------------------------------------------------------------
@@ -149,3 +152,8 @@ request using https
 > grpcurl -insecure -d @ localhost:8888 Rides.Start < request.json
 insecure - self signed certificates
 
+# For testing grpc server
+>  python -m pytest -v
+
+After server is launched
+> curl -d@request.json http://localhost:8080/start
