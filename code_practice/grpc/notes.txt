@@ -61,6 +61,13 @@ HTTP/2
 
 .proto file
 
+Interceptors ----------
+is used for monitoring, logging, authorization and more
+
+https://grpc.github.io/grpc/python/grpc.html#service-side-interceptor
+
+
+
 
 Docs and Ref -------------------------------------------------------------------
 https://protobuf.dev/overview/
@@ -84,6 +91,31 @@ https://kennethreitz.org/
 
 
 *******
+
+
+####################
+Certs in windows, the line for windows should have one more forward slash instead of 1 ('//CN)
+     -subj '//CN=localhost' \
+
+
+#!/bin/bash
+
+set -e
+set -x
+
+openssl req \
+    -newkey rsa:4096 \
+    -x509 \
+    -days 365 \
+    -nodes \
+    -subj '//CN=localhost' \
+    -keyout key.pem \
+    -out cert.pem \
+
+Sharing .proto definitions ------
+1. Monorepo
+2. Gitsubmodules
+3. Python/Language packages/jars
 
 
 
@@ -112,4 +144,8 @@ python -m grpc_tools.protoc \
 > grpcurl -plaintext localhost:8888 describe Rides
 > grpcurl -plaintext localhost:8888 describe .StartRequest
 > grpcurl.exe -plaintext -d @ localhost:8888 Rides.Start < request.json
+
+request using https
+> grpcurl -insecure -d @ localhost:8888 Rides.Start < request.json
+insecure - self signed certificates
 
