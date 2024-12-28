@@ -1,0 +1,115 @@
+GRPC
+
+
+A function call to grpc is different that normal call
+
+Function call 
+val = add(1, 2)
+
+RPC call for above is
+data = marshal(1,2)
+send data to server/add
+fn = route('/add')
+args = ummarshal(data)
+val = fn(args)
+data = marshal(val)
+val = ummarshal(data)
+
+1. marshal the data into sequence of bytes and send to server
+2. On Server side, the funciton is located, we convert args from sequence of bytes to an argument in the language, 
+3. call the function, get the result and marshal OR serialize it to sequence of bytes and send them back to the client
+4. On client side, we take the sequence of bytes and convert it back to result
+
+Why?
+1. Scale
+2. Security
+3. Upgrades
+4. Write in any language
+
+RPC is charaterized by two things
+1. Serialization format
+2. Medium/Transport of how the message is passed
+
+
+gRPC is RPC framework from google 
+Under the hood it uses protocol buffers as the serialization format and it uses HTTP/2(medium of transport to pass message between client and server)
+
+
+Protocol buffers 
+Serialization format from google, it has a schema
+
+syntax = "proto3"
+
+message Location {
+  double lat = 1;
+  double lon = 2;
+}
+
+protoc --version -- will be used to serizlise the inputs
+
+4x faster than json
+
+HTTP/2
+1. Binary frames
+2. Header compression
+3. Multiplexing
+4. Request prioritization
+5. Server push
+6. Secure - requires usage of TLS
+
+
+
+.proto file
+
+
+Docs and Ref -------------------------------------------------------------------
+https://protobuf.dev/overview/
+https://protobuf.dev/programming-guides/proto3/
+https://protobuf.dev/programming-guides/proto3/#scalar
+https://grpc.github.io/grpc/python/grpc.html#service-side-context
+https://grpc.github.io/grpc/python/grpc.html#grpc.ServicerContext.set_code
+https://grpc.github.io/grpc/python/grpc.html#grpc.StatusCode
+
+*******
+https://github.com/LinkedInLearning
+https://github.com/LinkedInLearning/grpc-in-python-2472001
+
+https://grpc.github.io/grpc/python/grpc.html#grpc.StatusCode
+https://grpc.io/docs/what-is-grpc/core-concepts/#server-streaming-rpc
+
+https://httpbin.org/
+
+https://kennethreitz.org/
+
+
+
+*******
+
+
+
+Commands----------------------------------------------------------------
+
+protoc --python_out=. rides.proto
+
+python -m grpc_tools.protoc  -I . --python_out=.  --grpc_python_out=.  rides.proto
+
+
+python -m grpc_tools.protoc \
+  -I . \
+  --python_out=. \
+  --grpc_python_out=. \
+  rides.proto
+
+python -m grpc_tools.protoc \
+  -I . \                      #Look for protocol buffers in current working directory
+  --python_out=. \            #Generate the protocol buffers definitions in current dir
+  --grpc_python_out=. \       #Generate files in current directory
+  rides.proto                 #use the proto file for reference
+
+
+> grpcurl -plaintext localhost:8888 list
+> grpcurl -plaintext localhost:8888 list Rides
+> grpcurl -plaintext localhost:8888 describe Rides
+> grpcurl -plaintext localhost:8888 describe .StartRequest
+> grpcurl.exe -plaintext -d @ localhost:8888 Rides.Start < request.json
+
