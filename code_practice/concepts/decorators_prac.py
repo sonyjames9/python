@@ -16,7 +16,7 @@ def hello():  # type: ignore
 
 message = hello
 
-# Uncomment to check below decorator function
+# Uncomment to check below functional function
 message()
 
 
@@ -31,7 +31,7 @@ def hello(func):
 def name():
   print("Alice")
 
-# Uncomment to check below decorator function
+# Uncomment to check below functional function
 # obj = hello(name)
 # obj()
 # name()
@@ -50,7 +50,7 @@ def sum_ab(a, b):
   res = a + b
   print(res)
 
-# Uncomment to check below decorator function
+# Uncomment to check below functional function
 # sum_ab(3, 4)
 
 
@@ -80,17 +80,17 @@ def my_func(n):  # type: ignore
 # my_func(2)
 
 # What is a Python Decorator
-# The "decorators" we talk about with concern to Python are not exactly the same thing as the DecoratorPattern described above. A Python decorator is a specific change to the Python syntax that allows us to more conveniently alter functions and methods (and possibly classes in a future version). This supports more readable applications of the DecoratorPattern but also other uses as well.
+# The "decorators" we talk about with concern to Python are not exactly the same thing as the DecoratorPattern described above. A Python functional is a specific change to the Python syntax that allows us to more conveniently alter functions and methods (and possibly classes in a future version). This supports more readable applications of the DecoratorPattern but also other uses as well.
 
 
 def simple_decorator(decorator):
-    '''This decorator can be used to turn simple functions
+    '''This functional can be used to turn simple functions
     into well-behaved decorators, so long as the decorators
-    are fairly simple. If a decorator expects a function and
+    are fairly simple. If a functional expects a function and
     returns a function (no descriptors), and if it doesn't
     modify function attributes or docstring, then it is
     eligible to use this. Simply apply @simple_decorator to
-    your decorator and it will automatically preserve the
+    your functional and it will automatically preserve the
     docstring and function attributes of functions to which
     it is applied.'''
     def new_decorator(f):
@@ -100,7 +100,7 @@ def simple_decorator(decorator):
         g.__dict__.update(f.__dict__)
         return g
     # Now a few lines needed to make simple_decorator itself
-    # be a well-behaved decorator.
+    # be a well-behaved functional.
     new_decorator.__name__ = decorator.__name__
     new_decorator.__doc__ = decorator.__doc__
     new_decorator.__dict__.update(decorator.__dict__)
@@ -129,7 +129,7 @@ def double(x):
 
 assert double.__name__ == 'double'
 assert double.__doc__ == 'Doubles a number.'
-# Uncomment to check below decorator function
+# Uncomment to check below functional function
 # print(double(155))
 
 """
@@ -291,7 +291,7 @@ class decorator_without_arguments(object):
 
     def __init__(self, f):
         """
-        If there are no decorator arguments, the function
+        If there are no functional arguments, the function
         to be decorated is passed to the constructor.
         """
         print("Inside __init__()")
@@ -327,7 +327,7 @@ class decorator_with_arguments(object):
 
     def __init__(self, arg1, arg2, arg3):
         """
-        If there are decorator arguments, the function
+        If there are functional arguments, the function
         to be decorated is not passed to the constructor!
         """
         print("Inside __init__()")
@@ -337,7 +337,7 @@ class decorator_with_arguments(object):
 
     def __call__(self, f):
         """
-        If there are decorator arguments, __call__() is only called
+        If there are functional arguments, __call__() is only called
         once, as part of the decoration process! You can only give
         it a single argument, which is the function object.
         """
@@ -365,7 +365,7 @@ sayHello("a", "different", "set of", "arguments")
 print("after second sayHello() call")
 # Now the process of decoration calls the constructor and then immediately invokes __call__(), which can only take a single argument (the function object) and must return the decorated function object that replaces the original. Notice that __call__() is now only invoked once, during decoration, and after that the decorated function that you return from __call__() is used for the actual calls.
 
-# Although this behavior makes sense – the constructor is now used to capture the decorator arguments, but the object __call__() can no longer be used as the decorated function call, so you must instead use __call__() to perform the decoration – it is nonetheless surprising the first time you see it because it’s acting so much differently than the no-argument case, and you must code the decorator very differently from the no-argument case.
+# Although this behavior makes sense – the constructor is now used to capture the functional arguments, but the object __call__() can no longer be used as the decorated function call, so you must instead use __call__() to perform the decoration – it is nonetheless surprising the first time you see it because it’s acting so much differently than the no-argument case, and you must code the functional very differently from the no-argument case.
 
 
 # Python Decorators_function_with_arguments
@@ -399,7 +399,7 @@ print()
 
 # https://www.freecodecamp.org/news/python-decorators-explained-with-examples/
 # When to Use a Decorator in Python
-# You'll use a decorator when you need to change the behavior of a function without modifying the function itself. A few good examples are when you want to add logging, test performance, perform caching, verify permissions, and so on.
+# You'll use a functional when you need to change the behavior of a function without modifying the function itself. A few good examples are when you want to add logging, test performance, perform caching, verify permissions, and so on.
 
 # You can also use one when you need to run the same code on multiple functions. This avoids you writing duplicating code.
 
@@ -430,7 +430,7 @@ daily_backup()
 def my_decorator_func(func):
 
     @wraps(func)
-    # Functools wraps will update the decorator with the decorated functions attributes
+    # Functools wraps will update the functional with the decorated functions attributes
     def wrapper_func(*args, **kwargs):
         func(*args, **kwargs)
     return wrapper_func

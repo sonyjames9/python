@@ -271,6 +271,104 @@ z.join()
 As soon as you use join, the threads will synchronize as per implementation
 
 
+Decorator
+Taking a function and modifying that function, adding some additional
+behavior to that function
+Idea of Decorator is that decorator takes a function as input and modifies version
+of that function as output.
+Unlike other programming languages where functions just exist on their own and
+they cant be passed as input/output to other functions
+In Python a function is just a value like any other known as functional programming paradigm, where functions are themselves value.
+
+Staticmethod belongs to class and not the object(instance of the class). Wont have any implicit params like self keyword
+
+Classmethod - get access to only class method. This does not call the instance of the class
+
+@functools.cache - whenever you call the same function with same params, we can use this decorator to cache the results of that function
+
+@dataclass
+ ALL THE ABOVE METHODS CAN BE REPLACED WITH BELOW, WE DONT NEED TO WRITE
+ __init__ INIT WRAPPER OR EQUAL METHOD
+THEY ARE AUTOMATICALLY IMPLEMENTED FOR US
+
+ USING "@dataclass" DECORATOR we can redefine like shown below
+
+@dataclass
+class Product:
+    name: str
+    price: float
+    quantity: int = 0
+
+    def total_cost(self) -> float:
+        return self.price * self.quantity
+
+100DaysCode/cs50w/ttm/dec5.py
+
+
+100DaysCode/cs50w/ttm/dec6.py
+The below code can be rewritten in 4 lines of code
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # Official String representation method of an object
+    def __repr__(self):
+        return f"Point(x={self.x}, y={self.y})"
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+__init__
+__repr__
+__eq__
+is no longer required with dataclass
+subs with below code
+
+@dataclass
+class Point:
+
+    x: int
+    y: int
+
+With dataclass the boilerplate python code to initialize, repr and eq method
+
+from typing import ClassVar
+@dataclass
+class InventoryItem:
+    """Class for keeping track of item in inventory"""
+    name: str
+    unit_price: float
+    quantity: int = 0
+    sizes: list[str] = field(default_factory=list)
+
+    class_var: ClassVar[int] = 100
+class variables can be declared using ClassVar, you need to declare the type of variable and value
+dataclass wont include variables using ClassVar and wont include in any of the method it generates
+
+Inheritance using non dataclass
+100DaysCode/cs50w/ttm/dec6.py
+
+Here the init is not called of base class hence you need to call the init manually
+using post__init method and define the super().__init__()
+
+    def __post_init__(self):
+        super().__init__(self.side, self.side)
+
+INIT VAR REDO
+https://www.youtube.com/watch?v=5mMpM8zK4pY
+if any InitVar fields are defined, they will also be passed to
+_post_init__() in the order they were defined in the class.
+If no __init__() method is generated, then __post_init__() will
+not automatically be called.
+# If a field is an InitVar, it is considered a pseudo-field called
+an init-only field. As it is not a true field, it is not returned by the module-level
+https://docs.python.org/3/library/dataclasses.html#class-variables
+
+DECORATOR REFERENCES
+https://github.com/indently/five_decorators/blob/main/decorators
+https://www.youtube.com/watch?v=3_P-dxrNCq8
+
+
 OOPS ------------
 
 hasattr(object,"name")
@@ -294,8 +392,16 @@ def welcomeToSchool():
 
 staticmethod is also called as class method
 
-#__init__
+#__init__   magic method
 -  def __init__(self) #when an object is instantiated, the object is passed here
+- All functions that operate on objects themselves, otherwise known as methods are going to take first arg self.
+- This arg self represents the object in question
+
+def __init__(self, x, y):
+    self.x = x
+    self.y = y
+the value of x and y when instantiated via object will be stored in self.x and self.y. Now the objects will hold the
+value of x,y in self.x and self.y
 
 object and self has address of object
 
@@ -459,3 +565,26 @@ twilio_account_sid = os.environ.get("twilio_account_sid")
 twilio_auth_token = os.environ.get("twilio_auth_token")
 
 have fun with apis https://apilist.fun/
+
+OOPS Day 17-23 and 34
+
+response = requests.get(STOCK_ENDPOINT, params=stock_params)
+# print(response.json())
+
+data = response.json()["Time Series (Daily)"]
+
+Day36
+STOCK endpoint
+#LIST COMPREHENSION
+Here list in data dictionary, you call the items of dictionary which will give you key and value
+Since the requirement is only for value, the new_item is replaced by value
+So here the data_list will return each day's data
+data_list = [new_item for item in list]
+data_list = [value for (key, value) in data.items()]
+
+Adding, key, value in this form will result in a tuple data
+data_list = [(key, value) for (key, value) in data.items()]
+
+Adding, key, value in this form will result in a array data
+data_list = [[key, value] for (key, value) in data.items()]
+

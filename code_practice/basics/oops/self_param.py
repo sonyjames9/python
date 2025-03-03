@@ -38,7 +38,7 @@ class Student:
 
   # Static method, self is not required
 
-  @staticmethod   # Using this decorator, instance knows this is class method and  its not related to object
+  @staticmethod   # Using this functional, instance knows this is class method and  its not related to object
   def welcomeToSchool():
     print("Welcome")
 
