@@ -9,7 +9,7 @@ B = ["Black", "Yellow", "Orange", "White"]
 # Remove the common colors in list A
 
 # Loop A to find all the colors
-C = A
+# C = A
 for colorA in range(len(A)):
     # Loop B to find the colors
     color_present = False
