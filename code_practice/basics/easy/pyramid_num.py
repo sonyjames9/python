@@ -1,6 +1,5 @@
 def print_number_pyramid(rows):
   """
-  % /opt/homebrew/bin/python3 /Users/sonyj/Git/sjy/py/py_100_days/python/code_practice/basics/easy/num_pyramid.py
   o/p:
       1
     123
@@ -18,3 +17,19 @@ def print_number_pyramid(rows):
     print()
 
 print_number_pyramid(5)
+
+
+"""
+1234
+123
+12
+1
+
+"""
+def print_half_number_pyramid(rows):
+  for i in range(1, rows + 1):
+    for j in range(rows - i):
+      print(j+1, end="")
+    print()
+
+print_half_number_pyramid(5)
