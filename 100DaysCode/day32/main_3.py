@@ -16,7 +16,7 @@ weekday =now.weekday()
 # msg['Subject'] = "Test Motivation"
 # msg.attach(MIMEText(body, 'plain'))
 
-if weekday == 4:
+if weekday == 4: 
   with open("100DaysCode/day32/quotes.txt") as quote_file:
     all_quotes =  quote_file.readlines()
     quote = random.choice(all_quotes)

@@ -133,3 +133,5 @@ dmypy.json
 # */basics/
 
 fyers/
+
+int_questions/
