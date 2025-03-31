@@ -1,6 +1,6 @@
 # https: // pythonbasics.org/decorators/
 
-import requests
+
 from ast import arg
 from time import perf_counter
 import tracemalloc
@@ -8,33 +8,6 @@ from functools import wraps
 from datetime import datetime
 import sys
 import time
-
-
-def hello():  # type: ignore
-  print("Hello")
-
-
-message = hello
-
-# Uncomment to check below functional function
-message()
-
-
-def hello(func):
-  def inner():
-    print("Hello")
-    func()
-  return inner
-
-
-@hello
-def name():
-  print("Alice")
-
-# Uncomment to check below functional function
-# obj = hello(name)
-# obj()
-# name()
 
 
 def dec_sum_ab(func):
@@ -51,13 +24,12 @@ def sum_ab(a, b):
   print(res)
 
 # Uncomment to check below functional function
-# sum_ab(3, 4)
+sum_ab(3, 4)
 
 
-""" 
+"""
     Real world examples
     Use Case: Time measurement
-
 """
 
 
@@ -77,7 +49,7 @@ def measure_time(func):
 def my_func(n):  # type: ignore
   time.sleep(n)
 
-# my_func(2)
+my_func(2)
 
 # What is a Python Decorator
 # The "decorators" we talk about with concern to Python are not exactly the same thing as the DecoratorPattern described above. A Python functional is a specific change to the Python syntax that allows us to more conveniently alter functions and methods (and possibly classes in a future version). This supports more readable applications of the DecoratorPattern but also other uses as well.
@@ -520,7 +492,7 @@ class LimitQuery:
             print(f'No queries left. All {self.count} queries used')
             return
 
-
+import requests
 @LimitQuery
 def get_coint_price(limit):
     """
