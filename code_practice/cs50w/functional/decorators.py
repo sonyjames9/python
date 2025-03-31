@@ -7,6 +7,11 @@
 # In Python a function is just a value like any other known as functional programming paradigm,
 # where functions are themselves value.
 
+# Output:
+# About to run the function
+# Hello World
+# Done with the function
+
 def announce(f):
     def wrapper():
         print("About to run the function")

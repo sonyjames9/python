@@ -13,3 +13,6 @@ def question_data():
     questions_data = data["results"]
     # print(questions_data)
     return questions_data
+
+
+print(question_data())
