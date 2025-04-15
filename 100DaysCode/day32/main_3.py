@@ -8,7 +8,7 @@ MY_EMAIL = "aawrashopping@gmail.com"
 PASSWORD = "zqff xnic bhkq swyt"
 
 now = dt.datetime.now()
-weekday =now.weekday()
+weekday = now.weekday()
 
 # msg = MIMEMultipart()
 # msg['From'] = MY_EMAIL
