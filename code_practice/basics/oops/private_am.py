@@ -39,5 +39,6 @@ s1 = Student.fromBirthYear("User1", 1970, 85)
 # print(s1.__name) #This is not allowed, you cannot access __name outside the class
 print(s1._Student__name)
 print(s1._Student__passing_percentage)
+# s1.welcomeToSchool()
 s1.studentDetails()
 # s1.isPassed()

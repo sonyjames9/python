@@ -63,4 +63,5 @@ a.next_node = b
 b.next_node = c
 c.next_node = a
 
-a.check_circular()
+a.print_nodes()
+# a.check_circular()

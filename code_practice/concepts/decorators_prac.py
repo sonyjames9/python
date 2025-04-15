@@ -1,6 +1,5 @@
 # https: // pythonbasics.org/decorators/
 
-
 from ast import arg
 from time import perf_counter
 import tracemalloc

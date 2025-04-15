@@ -35,3 +35,12 @@ def print_half_number_pyramid(rows):
     print()
 
 print_half_number_pyramid(5)
+
+
+def print_star_pattern(n):
+  for i in range(1, n + 1):
+    print("*" * i)
+
+
+# Example Usage
+print_star_pattern(5)

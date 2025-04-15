@@ -64,3 +64,13 @@ print(d2)
 print(d3)
 print(d4)
 print(d5)
+
+
+# TUPLE
+gen = (x ** 2 for x in range(5))
+print(tuple(gen))  # (0, 1, 4, 9, 16)
+
+# Find All Indices of Substring "is"
+base_string = "my name is sony. My name is james. Mississippi river in us"
+indices = [i for i in range(len(base_string)) if base_string.startswith("is", i)]
+print(indices)  # [8, 25, 36, 39]
